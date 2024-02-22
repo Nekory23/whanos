@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Whanos
+spec:
+  selector:
+    matchLabels:
+      app: Whanos
+  template:
+    metadata:
+      labels:
+        app: Whanos
+    spec:
+      containers:
+      - name: Whanos
+        image: <Image>
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

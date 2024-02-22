@@ -1,0 +1,12 @@
+FROM alpine:latest
+
+WORKDIR /whanos_example_apps/js-hello-world
+
+COPY ./mvn .mvn
+COPY mnvw pom.xml ./
+
+RUN ./mvnw dependency:go-offline
+
+COPY src ./src
+
+CMD ["./mvnw", "spring-boot:run"]

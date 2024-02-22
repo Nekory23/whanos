@@ -1,0 +1,13 @@
+FROM python:latest
+
+WORKDIR /whanos_example_apps/python-hello-world
+
+COPY requirement.txt requirement.txt
+
+RUN pip3 install -r requirement.txt
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["python3", "-m", "flaske", "run", "--host=0.0.0.0"]

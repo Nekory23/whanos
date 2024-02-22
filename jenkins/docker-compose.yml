@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+    jenkins:
+        ports:
+            - 8080:8080
+        volumes:
+            - ./whanos_jenkins.yml:/var/jenkins_conf
+            - jenkins_home:/var/jenkins_home
+        environment:
+            - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+            - USER_ADMIN_PASSWORD=admin
+            - CASC_JENKINS_CONFIG=/var/jenkins_conf/
+        build:
+            context: "."
+
+volumes:
+    jenkins_home:

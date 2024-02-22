@@ -1,0 +1,10 @@
+FROM gcc:latest
+
+RUN dnf install -y gcc
+RUN dnf install -y make
+
+COPY ../whanos_example_apps/c-hello-world /c-hello-world
+
+WORKDIR /whanos_example_apps/c-hello-world
+
+CMD ["make re"]
